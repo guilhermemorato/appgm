@@ -1,0 +1,39 @@
+<!-- Com este recurso do JINJA, esta página apresentará todo o conteúdo HERDADO da
+     página construida no arquivo layout.html
+    apenas adicionando o seu próprio conteúdo  -->
+
+{% extends "layout.html" %}
+
+<!-- Abaixo está o bloco que será inserido no "body" da página layout.html  -->
+
+{% block body %}
+
+    <h1>Matrícula</h1>
+
+<!-- Cria um FORMULÁRIO na página HTML, composto por um campo e um botão
+        E DEFINE QUE AÇÃO o formulário realiza quando SUBMETIDO!
+        A ação aqui é:
+         1. imprimir o formulário
+         2. coletar as respostas e guarda-la nas variáveis "nome_inserido" e "modalidade"
+         3. direcionar o browswer para a ROTA "/greet" -->
+         <form action="/matricula" method="post">
+            <!-- o input não se autocompleta, o cursor é movido para o 1º campo, -->
+            <!-- o input será guardado na variável "nome_inserido" -->
+            <!-- campo exibirá a etiqueta "nome" -->
+            <!-- o campo será do tipo "texto" -->
+            <!-- "required" = o campo é obrigatório (browser reclama se não preencher) -->
+            <input autocomplete="off" autofocus name="nome_inserido" placeholder="Nome do Aluno" type="text">
+
+            <!-- o campo exibirá as opções abaixo -->
+            <select name="modalidade">
+                <option disabled selected values="">Modalidades</option>
+                <!-- JINJA PERMITE LOOP -->
+                {% for modalidade in modalidades%}
+                <option>{{modalidade}}</option>
+                {% endfor%}
+            </select>
+
+            <!-- Cria o botão, que serve como "enter" (submit) -->
+            <!-- o botão exibirá a etiqueta "Cumprimente" -->
+            <button type="submit">Confirmar</button>
+{% endblock %}

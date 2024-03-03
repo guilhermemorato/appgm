@@ -1,0 +1,11 @@
+<!-- Com este recurso do JINJA, esta página apresentará todo o conteúdo HERDADO da
+     página construida no arquivo layout.html
+    apenas adicionando o seu próprio conteúdo  -->
+
+    {% extends "layout.html" %}
+
+    <!-- Abaixo está o bloco que será inserido no "body" da página layout.html  -->
+
+    {% block body %}
+    <h1>Erro! {{message}} Sua matrícula não foi realizada!</h1>
+    {% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+        <!-- NESTE arquivo, ficará tudo que se compõe a parte PADRONIZADA
+        que será HERDADA pelas outra páginas que vou usar.
+        Como se fosse o "papel timbrado" (template) de um documento.
+        O conteuúdo do "body" é varíavel e está contido em outros arquivos HTML   -->
+
+
+
+    <head>
+        <!-- Insere comando para que a página seja bem vista também em mobile devices
+            independente do tamanho e formato do dispositivo   -->
+         <meta name="viewport" content = "initial-scale=1, width=device-width">
+
+         <title>Matrícula Esportes</title>
+
+    </head>
+
+    <body>
+        <!-- Comando JINHAL para definir uma parte da página
+        que será preenchida por conteúdo que estão em OUTROS arquivos HTML  -->
+        {% block body %}{% endblock %}
+
+
+    </body>
+
+</html>

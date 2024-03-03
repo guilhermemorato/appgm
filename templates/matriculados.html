@@ -1,0 +1,36 @@
+<!-- Com este recurso do JINJA, esta página apresentará todo o conteúdo HERDADO da
+     página construida no arquivo layout.html
+    apenas adicionando o seu próprio conteúdo  -->
+
+    {% extends "layout.html" %}
+
+    <!-- Abaixo está o bloco que será inserido no "body" da página layout.html  -->
+
+    {% block body %}
+    <h1>Sucesso! Você está matriculado!</h1>
+     </br>
+
+    <table>
+
+          <thead> <!-- Header (cabeçalho) de Tabela -->
+               <tr> <!-- Linha do cabeçalho -->
+                    <th>Nome do Aluno</th>
+                    <th></th>
+                    <th>Modalidade</th>
+                    <th></th>
+               </tr>
+          </thead>
+
+           <tbody> <!-- Body (corpo) de Tabela -->
+               <!-- JINJA LOOP de registro "x" dentro do marcador (=lista Python) "matriculados" -->
+               {% for x in marcador_matriculados %}
+                    <tr> <!-- Imprime linha para o registro atual -->
+                         <td>{{ x.name }}</td> <!-- coluna nome aluno -->
+                         <td></td>
+                         <td>{{ x.sport }}</td> <!-- coluna modalidade -->
+                    </tr>
+               {% endfor %}
+          </tbody>
+
+    </table>
+    {% endblock %}
